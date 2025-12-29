@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://umkm-aren-backend-production.up.railway.app",
+  baseURL: "https://upload-web.up.railway.app",
 });
 
 // INTERCEPTOR: SELALU AMBIL TOKEN TERBARU
