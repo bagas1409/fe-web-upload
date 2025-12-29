@@ -8,8 +8,10 @@ import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import PublicRoute from "./components/PublicRoute";
 
+import { useAuth } from "./context/AuthContext";
+
 export default function App() {
-  const token = localStorage.getItem("token");
+  const { token } = useAuth();
 
   return (
     <BrowserRouter>

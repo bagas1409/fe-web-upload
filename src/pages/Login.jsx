@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import api from "../api/axios";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -8,6 +9,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -18,7 +20,7 @@ export default function Login() {
         password,
       });
 
-      localStorage.setItem("token", res.data.token);
+      login(res.data.token);
       toast.success("Welcome back!");
       navigate("/dashboard");
     } catch (err) {
