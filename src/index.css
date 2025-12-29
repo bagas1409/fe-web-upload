@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  /* Premium Modern Palette - Deep Blue & Vibrant Accent */
+  --color-primary: #0f172a; /* Slate 900 */
+  --color-primary-light: #1e293b; /* Slate 800 */
+  --color-secondary: #3b82f6; /* Blue 500 */
+  --color-secondary-hover: #2563eb; /* Blue 600 */
+  --color-accent: #8b5cf6; /* Violet 500 */
+  --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-bg: #f8fafc; /* Slate 50 */
+  --color-text: #334155; /* Slate 700 */
+  --color-text-light: #94a3b8; /* Slate 400 */
+  --color-white: #ffffff;
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg active:scale-95 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow active:scale-95 cursor-pointer;
+  }
+  
+  .btn-danger {
+    @apply px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-200 font-medium shadow-md hover:shadow-lg active:scale-95 cursor-pointer;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2 rounded-lg border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
